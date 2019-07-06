@@ -1,0 +1,39 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" mode="ios"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToDashboard()">
+        <ion-icon slot="icon-only" name="home" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>All Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-virtual-scroll [items]="allStudents" approxItemHeight="320px" *ngIf="allStudents.length!==0">
+    <ion-item *virtualItem="let student">
+      <ion-avatar slot="start">
+        <img [src]="student.Photo? student?.Photo:'assets/icon/ic_avatar.png'" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>{{student?.Name}}</h1>
+
+        <h2>
+          <ion-icon slot="start" name="mail" color="danger"></ion-icon>{{student?.Email}}
+        </h2>
+        <h2>
+          <ion-icon slot="start" name="call" color="danger"></ion-icon>{{student?.Phone}}
+        </h2>
+        <h2>
+          <ion-icon slot="start" name="pin" color="danger"></ion-icon>{{student?.Location}}
+        </h2>
+        <h2>
+          <ion-icon slot="start" name="calendar" color="danger"></ion-icon>{{student?.Batch}}
+        </h2>
+      </ion-label>
+    </ion-item>
+  </ion-virtual-scroll>
+</ion-content>

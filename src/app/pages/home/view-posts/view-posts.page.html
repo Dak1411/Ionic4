@@ -1,0 +1,38 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" mode="ios"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Post</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToDashboard()">
+        <ion-icon slot="icon-only" name="home" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Fetching latest posts...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="vertical-horizontal-center" *ngIf="postCollection.length===0">
+    <p>{{noPostMessage}}</p>
+  </div>
+  <ion-virtual-scroll [items]="postCollection" approxItemHeight="320px" *ngIf="postCollection.length!==0">
+    <ion-card *virtualItem="let post" (click)="editPost(post)">
+      <div class="image-container">
+        <ion-img [src]="post.Image? post.Image : 'assets/icon/favicon.png'" alt=""></ion-img>
+      </div>
+      <ion-card-header>
+        <ion-card-title color="tertiary">{{post.Subject}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Author: {{post.Author}}</p>
+        <p>Posted Date:{{post.UploadedDate|date:'dd/MM/yyyy'}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
+</ion-content>

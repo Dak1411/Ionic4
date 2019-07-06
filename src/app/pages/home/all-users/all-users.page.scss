@@ -1,0 +1,18 @@
+h1{
+    color:var(--ion-color-primary);
+}
+ion-icon{
+    padding: 0 10px;
+}
+ion-avatar{
+    height: 60px;
+    width: 60px;
+    border: 1px solid #000;
+    border-radius: 100%;
+}
+h2{
+white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}

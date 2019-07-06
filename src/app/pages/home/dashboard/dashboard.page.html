@@ -1,0 +1,70 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" mode="ios"></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="doLogOut()">
+        <ion-icon slot="icon-only" name="log-out" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="profile-icon">
+    <img [src]="studentDetails?.Photo ? studentDetails?.Photo : 'assets/icon/ic_avatar.png'" class="user-image" />
+  </div>
+  <ion-segment (ionChange)="segmentChanged($event)" [value]="selectedSegment" color="primary">
+    <ion-segment-button value="personal">
+      <ion-label color="primary">
+        Personal
+      </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="professional">
+      <ion-label color="primary">
+        Professional
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="selectedSegment">
+    <ion-list *ngSwitchCase="'personal'">
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Student Name</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Name" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Contact Number</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Phone" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Contact Email</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Email" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Location</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Location" readonly></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'professional'">
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">College</ion-label>
+        <ion-input type="text" value="Kannur University" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Department</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Department" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Batch</ion-label>
+        <ion-input type="text" [value]="studentDetails?.Batch" readonly></ion-input>
+      </ion-item>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">Role</ion-label>
+        <ion-input type="text" [value]="studentDetails?.UserRole" readonly></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

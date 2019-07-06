@@ -1,0 +1,34 @@
+<ion-content padding>
+    <div class="field-container">
+        <form [formGroup]="credentialsForm" class="width-100" (ngSubmit)="doLogin()">
+            <ion-list>
+                <ion-item no-padding class="transparent-border">
+                    <div class="logo-div">
+                        <img src="assets/icon/favicon.png" class="app-logo">
+                    </div>
+                </ion-item>
+                <ion-item no-padding>
+                    <ion-label position="floating" color="primary">Email</ion-label>
+                    <ion-input type="email" mode="ios" formControlName="userName" required></ion-input>
+                </ion-item>
+                <p class="validation-errors" text-left *ngIf="!credentialsForm['controls'].userName.valid &&
+                credentialsForm['controls'].userName.errors && (credentialsForm['controls'].userName.errors.validateEmail && onSaveAttempt)">
+                    {{credentialsForm['controls'].userName.errors.validateEmail.error}}</p>
+                <ion-item no-padding>
+                    <ion-label position="floating" color="primary">Password</ion-label>
+                    <ion-input type="password" mode="ios" formControlName="password" required></ion-input>
+                </ion-item>
+                <span class="validation-errors" *ngIf="!credentialsForm.controls.password.valid && (credentialsForm.controls.password.dirty || onSaveAttempt)">Password
+                    is mandatory</span>
+
+            </ion-list>
+            <div class="button-containter">
+                <ion-button type="submit" expand="block" shape="round" class="signin-button" color="vibrant">Sign
+                    In</ion-button>
+                <ion-button type="button" (click)="doRegistrationNavigation()" expand="block" shape="round" class="signin-button"
+                    color="vibrant">Register</ion-button>
+            </div>
+
+        </form>
+    </div>
+</ion-content>

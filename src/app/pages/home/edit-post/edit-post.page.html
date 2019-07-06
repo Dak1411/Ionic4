@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button href="" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{allowEdit?'Edit Post':'Post Details'}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToDashboard()">
+        <ion-icon slot="icon-only" name="home" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-row>
+    <ion-col col-12>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">{{allowEdit?'Edit Title':'Title'}}</ion-label>
+        <ion-input type="text" maxlength="10" value="{{editPost.Subject}}" [readonly]="!allowEdit"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <ion-item no-padding>
+        <ion-label position="stacked" color="primary">{{allowEdit?'Edit Content':'Description'}}</ion-label>
+        <ion-textarea rows="5" cols="20" placeholder="Enter Details here" value="{{editPost.Description}}"
+          [readonly]="!allowEdit"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <ion-item no-padding class="no-berder transparent-border">
+        <ion-label position="stacked" color="primary">{{allowEdit?'Edit Image':'Image'}}</ion-label>
+        <img [src]="editPost.Image?editPost.Image : 'assets/icon/favicon.png'" class="add-picture"
+          (click)="viewAttachment(editPost.Image)">
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer no-border *ngIf="allowEdit">
+  <ion-button expand="block" shape="round" class="submit-button" color="vibrant">Update Post
+  </ion-button>
+</ion-footer>

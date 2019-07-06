@@ -1,0 +1,14 @@
+.profile-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-image{
+    width: 75px;
+    height: 75px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.sc-ion-segment-md-h.ion-color.sc-ion-segment-md-s > ion-segment-button{
+    --ripple-color: transparent;
+}

@@ -1,0 +1,88 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button href="" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button icon-only (click)="updateProfile()">
+        <ion-icon name="save" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="profile-icon">
+    <img [src]="userDetails?.Photo? userDetails?.Photo : 'assets/icon/ic_avatar.png'" class="user-image" />
+  </div>
+  <p text-center (click)="updateProfilePic()">Edit Photo</p>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="updateProfileForm" class="width-100">
+    <ion-row>
+      <ion-col>
+        <ion-item no-padding>
+          <ion-icon slot="start" [name]="userDetails?.Gender==='m' ? 'man':'woman'" color="danger"></ion-icon>
+          <ion-label position="stacked" color="primary">Edit Name</ion-label>
+          <ion-input type="text" formControlName="name" required></ion-input>
+        </ion-item>
+        <p class="validation-errors" text-left
+          *ngIf="!updateProfileForm['controls'].name.valid &&
+        updateProfileForm['controls'].name.errors && (updateProfileForm['controls'].name.errors.validateName && onSaveAttempt)">
+          {{updateProfileForm['controls'].name.errors.validateName.error}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item no-padding>
+          <ion-label position="stacked" color="primary">Email Id</ion-label>
+          <ion-icon slot="start" name="mail" color="danger"></ion-icon>
+          <ion-input type="email" [value]="userDetails?.Email" disabled></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item no-padding>
+          <ion-icon slot="start" name="call" color="danger"></ion-icon>
+          <ion-label position="stacked" color="primary">Contact Number</ion-label>
+          <ion-input type="number" formControlName="phone" required></ion-input>
+        </ion-item>
+        <p class="validation-errors" text-left
+          *ngIf="!updateProfileForm['controls'].phone.valid &&
+             updateProfileForm['controls'].phone.errors && (updateProfileForm['controls'].phone.errors.validatePhone && onSaveAttempt)">
+          {{updateProfileForm['controls'].phone.errors.validatePhone.error}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item no-padding>
+          <ion-label position="stacked " color="primary">Location</ion-label>
+          <ion-icon slot="start" name="pin" color="danger"></ion-icon>
+          <ion-select interface="alert" placeholder="Update location" mode="ios" required formControlName="location"
+            required>
+            <ion-select-option *ngFor="let location of locationList" [value]="location">{{location}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <p class="validation-errors" text-left
+          *ngIf="!updateProfileForm['controls'].location.valid && (updateProfileForm['controls'].location.dirty ||onSaveAttempt)">
+          Please
+          Select Your Location</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item no-padding>
+          <ion-icon slot="start" name="calendar" color="danger"></ion-icon>
+          <ion-label position="stacked" color="primary">Year</ion-label>
+          <ion-select interface="alert" placeholder="Update Year" mode="ios" required formControlName="batch" required>
+            <ion-select-option *ngFor="let year of yearList" [value]="year">{{year}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <p class="validation-errors" text-left
+          *ngIf="!updateProfileForm['controls'].batch.valid && (updateProfileForm['controls'].batch.dirty ||onSaveAttempt)">
+          Please
+          Select Your Batch</p>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

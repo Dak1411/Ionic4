@@ -1,0 +1,14 @@
+<ion-header no-border>
+  <ion-row class="vertical-middle user-container">
+    <ion-col col-5>
+      <img [src]="studentDetails.Photo? studentDetails.Photo:'assets/icon/ic_avatar.png'" class="user-image">
+    </ion-col>
+    <ion-col col-5>
+      <p class="name-text">{{studentDetails?.Name}}</p>
+      <p class="email-text">{{studentDetails.Email}}</p>
+    </ion-col>
+    <ion-col col-2 text-center (click)="editUserProfile()">
+      <ion-icon name="create" color="primary"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-header>

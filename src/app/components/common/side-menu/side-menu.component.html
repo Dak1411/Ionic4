@@ -1,0 +1,15 @@
+<ion-menu menuId="side-menu" contentId="content">
+  <app-user menuClose></app-user>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" menuClose>
+        <ion-item (click)="openPage(p)">
+          <ion-icon slot="start" [name]="p.icon" [color]="checkActivePage(p)?'danger':'primary'"></ion-icon>
+          <ion-label [color]="checkActivePage(p)?'danger':'primary'">
+            {{p.title}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

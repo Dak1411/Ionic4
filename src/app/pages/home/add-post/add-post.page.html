@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" mode="ios"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Post</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToDashboard()">
+        <ion-icon slot="icon-only" name="home" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="addsForm">
+    <ion-row>
+      <ion-col col-12>
+        <ion-item no-padding>
+          <ion-label position="stacked" color="primary">Title</ion-label>
+          <ion-input type="text" maxlength="50" formControlName="subject"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <p class="validation-errors" text-left
+      *ngIf="!addsForm['controls'].subject.valid && (addsForm['controls'].subject.dirty ||onSaveAttempt)">Please
+      provide a Title</p>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item no-padding>
+          <ion-label position="stacked" color="primary">Description</ion-label>
+          <ion-textarea rows="5" cols="20" placeholder="Enter Details here" formControlName="description">
+          </ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <p class="validation-errors" text-left
+      *ngIf="!addsForm['controls'].description.valid && (addsForm['controls'].description.dirty ||onSaveAttempt)">Please
+      provide the description.</p>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item no-padding class="no-berder">
+          <ion-label position="stacked" color="primary">Add Image</ion-label>
+          <img [src]="addsAttach?addsAttach:'assets/icon/favicon.png'" class="add-picture" (click)="addImage()">
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>
+<ion-footer no-border>
+  <ion-button (click)="submitPost()" expand="block" shape="round" class="submit-button" color="vibrant">Submit Post
+  </ion-button>
+</ion-footer>

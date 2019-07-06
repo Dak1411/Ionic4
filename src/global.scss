@@ -1,0 +1,49 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+.validation-errors{
+    color: red;
+    font-size: 10px;
+}
+
+ion-item{
+    --highlight-color-focused:none !important;
+    --highlight-color-valid: none;
+    --highlight-color-invalid: none;
+}
+.vertical-middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.transparent-border{
+    --border-color: transparent;
+}
+.vertical-horizontal-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.width-100{
+    width: 100%;
+}
+ion-header{
+    background-color: #fff !important;
+}
+:host(.ion-focused) .item-native {
+    background: transparent;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets{
+    position: relative !important;
+    margin: 25px 0;
+}

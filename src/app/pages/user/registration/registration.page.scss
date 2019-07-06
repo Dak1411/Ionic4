@@ -1,0 +1,22 @@
+.register-button{
+    margin: 50px 0;
+    height: 50px;
+    color: #ffff
+}
+:host{
+    .no-berder{
+        --border-color: transparent;
+    }
+}
+.add-picture{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid #d3d3d3;
+}
+
+.radio-inner{
+    background: #000 !important;
+}
+
+

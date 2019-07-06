@@ -1,0 +1,35 @@
+.card-header-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 100px;
+        height: 100px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+    }
+}
+p{
+    margin: 15px;
+}
+ion-card-title{
+    margin: 15px
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    ion-img{
+        width: 100px;
+        height: 100px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+    }
+}
+ion-card-header{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+

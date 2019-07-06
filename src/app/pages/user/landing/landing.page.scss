@@ -1,0 +1,40 @@
+
+.signin-button{
+    height: 50px;
+    color: #ffff
+}
+ion-list{
+    width: 100%;
+}
+.no-border{
+    border: none !important
+}
+.width-100{
+    width: 100%;
+}
+.field-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.app-logo{
+    width: 100px;
+    height: 100px;
+}
+.logo-div{
+    width: 100%;
+    text-align: center;
+}
+.create-account{
+    float: left;
+    font-size: 12px;
+}
+.button-containter{
+    display: inline-flex;
+    margin: 50px 0;
+    width: 100%;
+    ion-button{
+        width: 100%;
+    }
+}
